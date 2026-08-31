@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_scr_lead_score_user,scr.lead.score.user,model_scr_lead_score,base.group_user,1,1,1,1
+access_scr_revenue_forecast_user,scr.revenue.forecast.user,model_scr_revenue_forecast,base.group_user,1,1,1,1
+access_scr_customer_insight_user,scr.customer.insight.user,model_scr_customer_insight,base.group_user,1,1,1,1
+access_scr_pipeline_analytics_user,scr.pipeline.analytics.user,model_scr_pipeline_analytics,base.group_user,1,1,1,1
+access_scr_churn_prediction_user,scr.churn.prediction.user,model_scr_churn_prediction,base.group_user,1,1,1,1

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="scr_lead_score_view_tree" model="ir.ui.view">
+            <field name="name">scr.lead.score.tree</field>
+            <field name="model">scr.lead.score</field>
+            <field name="arch" type="xml">
+                <tree string="Lead Scores" decoration-success="ai_recommendation=='pursue'"
+                      decoration-warning="ai_recommendation=='nurture'"
+                      decoration-danger="ai_recommendation=='disqualify'">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="lead_source"/>
+                    <field name="score" widget="progressbar"/>
+                    <field name="conversion_probability" widget="progressbar"/>
+                    <field name="ai_recommendation"/>
+                    <field name="last_scored"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="scr_lead_score_view_form" model="ir.ui.view">
+            <field name="name">scr.lead.score.form</field>
+            <field name="model">scr.lead.score</field>
+            <field name="arch" type="xml">
+                <form string="Lead Score">
+                    <header>
+                        <button name="action_rescore" type="object" string="Re-score" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="lead_source"/>
+                            </group>
+                            <group>
+                                <field name="score" widget="progressbar"/>
+                                <field name="conversion_probability" widget="progressbar"/>
+                                <field name="ai_recommendation"/>
+                                <field name="last_scored"/>
+                            </group>
+                        </group>
+                        <group string="Score Factors">
+                            <field name="score_factors" nolabel="1" widget="text"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="scr_lead_score_action" model="ir.actions.act_window">
+            <field name="name">Lead Scoring</field>
+            <field name="res_model">scr.lead.score</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first AI lead score
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

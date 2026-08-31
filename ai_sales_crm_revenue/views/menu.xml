@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Root Menu -->
+        <menuitem id="menu_scr_root"
+                  name="Sales &amp; Revenue Intelligence"
+                  sequence="10"
+                  web_icon="ai_sales_crm_revenue,static/description/icon.png"/>
+
+        <!-- Submenus -->
+        <menuitem id="menu_scr_lead_score"
+                  name="Lead Scoring"
+                  parent="menu_scr_root"
+                  action="scr_lead_score_action"
+                  sequence="10"/>
+
+        <menuitem id="menu_scr_revenue_forecast"
+                  name="Revenue Forecasts"
+                  parent="menu_scr_root"
+                  action="scr_revenue_forecast_action"
+                  sequence="20"/>
+
+        <menuitem id="menu_scr_customer_insight"
+                  name="Customer Insights"
+                  parent="menu_scr_root"
+                  action="scr_customer_insight_action"
+                  sequence="30"/>
+
+        <menuitem id="menu_scr_pipeline_analytics"
+                  name="Pipeline Analytics"
+                  parent="menu_scr_root"
+                  action="scr_pipeline_analytics_action"
+                  sequence="40"/>
+
+        <menuitem id="menu_scr_churn_prediction"
+                  name="Churn Prediction"
+                  parent="menu_scr_root"
+                  action="scr_churn_prediction_action"
+                  sequence="50"/>
+    </data>
+</odoo>

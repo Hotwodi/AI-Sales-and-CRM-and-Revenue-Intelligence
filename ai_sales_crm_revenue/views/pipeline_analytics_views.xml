@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="scr_pipeline_analytics_view_tree" model="ir.ui.view">
+            <field name="name">scr.pipeline.analytics.tree</field>
+            <field name="model">scr.pipeline.analytics</field>
+            <field name="arch" type="xml">
+                <tree string="Pipeline Analytics">
+                    <field name="name"/>
+                    <field name="period"/>
+                    <field name="team_id"/>
+                    <field name="total_pipeline" sum="Total Pipeline"/>
+                    <field name="weighted_pipeline" sum="Weighted Pipeline"/>
+                    <field name="avg_deal_size"/>
+                    <field name="win_rate" widget="progressbar"/>
+                    <field name="sales_cycle_days"/>
+                    <field name="ai_forecast" sum="AI Forecast"/>
+                    <field name="currency_id" column_invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="scr_pipeline_analytics_view_form" model="ir.ui.view">
+            <field name="name">scr.pipeline.analytics.form</field>
+            <field name="model">scr.pipeline.analytics</field>
+            <field name="arch" type="xml">
+                <form string="Pipeline Analytics">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="period"/>
+                                <field name="team_id"/>
+                            </group>
+                            <group>
+                                <field name="total_pipeline"/>
+                                <field name="weighted_pipeline"/>
+                                <field name="ai_forecast"/>
+                                <field name="currency_id" groups="base.group_multi_currency"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="avg_deal_size"/>
+                                <field name="win_rate" widget="progressbar"/>
+                            </group>
+                            <group>
+                                <field name="sales_cycle_days"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="scr_pipeline_analytics_action" model="ir.actions.act_window">
+            <field name="name">Pipeline Analytics</field>
+            <field name="res_model">scr.pipeline.analytics</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first pipeline analytics record
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="scr_churn_prediction_view_tree" model="ir.ui.view">
+            <field name="name">scr.churn.prediction.tree</field>
+            <field name="model">scr.churn.prediction</field>
+            <field name="arch" type="xml">
+                <tree string="Churn Predictions" decoration-success="state=='active'"
+                      decoration-warning="state=='at_risk'"
+                      decoration-danger="state=='churned'"
+                      decoration-info="state=='saved'">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="churn_probability" widget="progressbar"/>
+                    <field name="state"/>
+                    <field name="days_inactive"/>
+                    <field name="last_activity"/>
+                    <field name="ai_confidence" widget="progressbar"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="scr_churn_prediction_view_form" model="ir.ui.view">
+            <field name="name">scr.churn.prediction.form</field>
+            <field name="model">scr.churn.prediction</field>
+            <field name="arch" type="xml">
+                <form string="Churn Prediction">
+                    <header>
+                        <button name="action_mark_saved" type="object" string="Mark as Saved"
+                                class="btn-success" invisible="state not in ['at_risk', 'churned']"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="state"/>
+                                <field name="last_activity"/>
+                                <field name="days_inactive"/>
+                            </group>
+                            <group>
+                                <field name="churn_probability" widget="progressbar"/>
+                                <field name="ai_confidence" widget="progressbar"/>
+                            </group>
+                        </group>
+                        <group string="Risk Factors">
+                            <field name="risk_factors" nolabel="1" widget="text"/>
+                        </group>
+                        <group string="Retention Action">
+                            <field name="retention_action" nolabel="1" widget="text"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="scr_churn_prediction_action" model="ir.actions.act_window">
+            <field name="name">Churn Prediction</field>
+            <field name="res_model">scr.churn.prediction</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first churn prediction
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

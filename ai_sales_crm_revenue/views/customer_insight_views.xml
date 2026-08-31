@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="scr_customer_insight_view_tree" model="ir.ui.view">
+            <field name="name">scr.customer.insight.tree</field>
+            <field name="model">scr.customer.insight</field>
+            <field name="arch" type="xml">
+                <tree string="Customer Insights" decoration-success="ai_segment=='vip'"
+                      decoration-info="ai_segment=='growth'"
+                      decoration-warning="ai_segment=='stable'"
+                      decoration-danger="ai_segment=='at_risk'">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="ltv" sum="Total LTV"/>
+                    <field name="ai_segment"/>
+                    <field name="engagement_score" widget="progressbar"/>
+                    <field name="churn_risk" widget="progressbar"/>
+                    <field name="last_purchase"/>
+                    <field name="currency_id" column_invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="scr_customer_insight_view_form" model="ir.ui.view">
+            <field name="name">scr.customer.insight.form</field>
+            <field name="model">scr.customer.insight</field>
+            <field name="arch" type="xml">
+                <form string="Customer Insight">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="ai_segment"/>
+                                <field name="last_purchase"/>
+                            </group>
+                            <group>
+                                <field name="ltv"/>
+                                <field name="engagement_score" widget="progressbar"/>
+                                <field name="churn_risk" widget="progressbar"/>
+                                <field name="currency_id" groups="base.group_multi_currency"/>
+                            </group>
+                        </group>
+                        <group string="Recommended Actions">
+                            <field name="recommended_actions" nolabel="1" widget="text"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="scr_customer_insight_action" model="ir.actions.act_window">
+            <field name="name">Customer Insights</field>
+            <field name="res_model">scr.customer.insight</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first customer insight
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
