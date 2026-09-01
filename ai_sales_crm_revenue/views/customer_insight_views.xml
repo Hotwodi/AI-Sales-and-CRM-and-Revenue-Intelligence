@@ -6,7 +6,7 @@
             <field name="name">scr.customer.insight.tree</field>
             <field name="model">scr.customer.insight</field>
             <field name="arch" type="xml">
-                <tree string="Customer Insights" decoration-success="ai_segment=='vip'"
+                <list string="Customer Insights" decoration-success="ai_segment=='vip'"
                       decoration-info="ai_segment=='growth'"
                       decoration-warning="ai_segment=='stable'"
                       decoration-danger="ai_segment=='at_risk'">
@@ -18,7 +18,7 @@
                     <field name="churn_risk" widget="progressbar"/>
                     <field name="last_purchase"/>
                     <field name="currency_id" column_invisible="1"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -59,7 +59,7 @@
         <record id="scr_customer_insight_action" model="ir.actions.act_window">
             <field name="name">Customer Insights</field>
             <field name="res_model">scr.customer.insight</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create your first customer insight

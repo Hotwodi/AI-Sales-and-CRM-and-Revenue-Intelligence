@@ -6,7 +6,7 @@
             <field name="name">scr.lead.score.tree</field>
             <field name="model">scr.lead.score</field>
             <field name="arch" type="xml">
-                <tree string="Lead Scores" decoration-success="ai_recommendation=='pursue'"
+                <list string="Lead Scores" decoration-success="ai_recommendation=='pursue'"
                       decoration-warning="ai_recommendation=='nurture'"
                       decoration-danger="ai_recommendation=='disqualify'">
                     <field name="name"/>
@@ -16,7 +16,7 @@
                     <field name="conversion_probability" widget="progressbar"/>
                     <field name="ai_recommendation"/>
                     <field name="last_scored"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -59,7 +59,7 @@
         <record id="scr_lead_score_action" model="ir.actions.act_window">
             <field name="name">Lead Scoring</field>
             <field name="res_model">scr.lead.score</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create your first AI lead score

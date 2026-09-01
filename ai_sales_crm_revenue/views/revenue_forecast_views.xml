@@ -6,7 +6,7 @@
             <field name="name">scr.revenue.forecast.tree</field>
             <field name="model">scr.revenue.forecast</field>
             <field name="arch" type="xml">
-                <tree string="Revenue Forecasts" decoration-info="scenario=='base'"
+                <list string="Revenue Forecasts" decoration-info="scenario=='base'"
                       decoration-success="scenario=='optimistic'"
                       decoration-warning="scenario=='conservative'">
                     <field name="name"/>
@@ -18,7 +18,7 @@
                     <field name="ai_confidence" widget="progressbar"/>
                     <field name="product_category_id"/>
                     <field name="currency_id" column_invisible="1"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -57,7 +57,7 @@
         <record id="scr_revenue_forecast_action" model="ir.actions.act_window">
             <field name="name">Revenue Forecasts</field>
             <field name="res_model">scr.revenue.forecast</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create your first revenue forecast
