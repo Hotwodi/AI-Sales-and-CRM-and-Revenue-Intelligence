@@ -18,7 +18,7 @@ Transform your sales process with AI-driven insights:
     'author': 'SoftaiDev',
     'website': 'https://softaidev.pages.dev',
     'license': 'LGPL-3',
-    'price': 599.99,
+    'price': 606.85,
     'currency': 'USD',
     'application': True,
     'installable': True,
